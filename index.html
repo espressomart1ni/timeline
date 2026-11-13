@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A History of Fashion</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IM+Fell+English+SC&display=swap">
+<style>
+:root{--bg:#2b1c13;--bg2:#3a281b;--par:#e6d5ae;--par2:#d6c093;--ink:#3a2615;--gold:#b8913e;--goldl:#d3b36a;
+--serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;--sc:"IM Fell English SC",Georgia,serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{height:100%;margin:0;background:radial-gradient(ellipse at 50% 40%,#3d2a1c,#241810 75%);color:var(--par);font-family:var(--serif);overflow:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.35;mix-blend-mode:soft-light;
+background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .6 0 0 0 0 .45 0 0 0 0 .3 0 0 0 .8 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+button{font:inherit;color:inherit;cursor:pointer}
+/* header */
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:20;padding:26px 40px 0;pointer-events:none}
+.kick{font:13px var(--sc);letter-spacing:.28em;color:var(--goldl)}
+h1{margin:6px 0 0;font-weight:500;font-size:clamp(34px,6.2vw,88px);letter-spacing:.07em;line-height:1;text-transform:uppercase;color:var(--par)}
+.rule{width:min(420px,60vw);height:1px;margin-top:14px;background:linear-gradient(90deg,var(--gold),transparent)}
+.zoom{position:fixed;top:calc(26px + env(safe-area-inset-top,0px));right:34px;z-index:30;display:flex;gap:8px;align-items:center;font:13px var(--sc);letter-spacing:.15em;color:var(--goldl)}
+.zoom button{width:34px;height:34px;border:1px solid var(--gold);background:rgba(58,40,27,.7);font-size:20px;line-height:1}
+.zoom button:hover{background:var(--gold);color:var(--bg)}
+.hint{position:fixed;bottom:calc(26px + env(safe-area-inset-bottom,0px));left:40px;z-index:20;font:italic 18px var(--serif);color:var(--par2);transition:opacity .8s;pointer-events:none}
+/* timeline */
+#sc{position:fixed;inset:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+#track{position:relative;height:100%;cursor:crosshair}
+.mat{position:absolute;top:24%;bottom:12%;left:0;right:0;background:linear-gradient(#ebdcb8,#dcc89b);
+box-shadow:inset 0 0 70px rgba(90,60,30,.4),0 10px 40px rgba(0,0,0,.45);border-top:3px double var(--gold);border-bottom:3px double var(--gold)}
+.axis{position:absolute;top:60%;left:0;right:0;height:2px;background:var(--ink)}
+.tick{position:absolute;top:60%;width:1px;height:12px;background:var(--ink)}
+.tick span{position:absolute;top:16px;left:0;transform:translateX(-50%);font:14px var(--sc);color:var(--ink);white-space:nowrap}
+.per{position:absolute;top:76%;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--ink);
+font:12px var(--sc);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:rgba(184,145,62,.2);overflow:hidden;white-space:nowrap}
+.per:nth-child(even){background:rgba(90,60,30,.14)}
+.ms{position:absolute;top:60%;cursor:pointer;z-index:5}
+.ms i{display:block;width:13px;height:13px;background:var(--gold);border:2px solid var(--ink);transform:translate(-50%,-50%) rotate(45deg);transition:transform .25s}
+.ms:hover i{transform:translate(-50%,-50%) rotate(45deg) scale(1.5)}
+.ms b{position:absolute;left:0;bottom:var(--lv);transform:translateX(-50%);white-space:nowrap;font:italic 600 16px var(--serif);color:var(--ink);background:rgba(235,220,184,.85);padding:0 4px}
+.ms em{position:absolute;left:0;bottom:6px;width:1px;height:calc(var(--lv) - 2px);background:var(--gold)}
+.cut{position:absolute;z-index:2;cursor:pointer;will-change:transform;filter:drop-shadow(3px 6px 6px rgba(50,30,10,.45))}
+.cut-in{clip-path:polygon(2% 3%,30% 0,62% 2%,98% 0,100% 40%,97% 70%,100% 98%,60% 100%,30% 97%,0 100%,2% 55%,0 30%);
+background:#f1e6c8;padding:12px;animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d);transition:transform .35s}
+.cut:hover .cut-in{transform:scale(1.06)}
+@keyframes rise{from{opacity:0;transform:translateY(40px) scale(.95)}}
+.slot{position:relative;display:block;width:100%;height:100%;background:radial-gradient(ellipse at 50% 40%,#c9a975,#8c6a41);overflow:hidden}
+.slot svg{width:100%;height:100%;display:block;fill:#4a3220;opacity:.78}
+.slot small{position:absolute;bottom:4px;left:0;right:0;text-align:center;font:italic 11px var(--serif);color:rgba(240,226,190,.8)}
+#guide{position:absolute;top:24%;bottom:12%;width:1px;background:rgba(58,38,21,.35);pointer-events:none;display:none;z-index:4}
+#guide span{position:absolute;top:10px;left:6px;font:13px var(--sc);color:var(--ink);white-space:nowrap;background:rgba(235,220,184,.9);padding:1px 5px}
+#sel{position:absolute;top:24%;bottom:12%;width:0;border-left:2px dashed var(--gold);pointer-events:none;z-index:3;display:none}
+/* popup */
+#pop{position:fixed;z-index:40;width:330px;background:var(--par);color:var(--ink);padding:20px 22px 18px;border:1px solid var(--ink);
+outline:4px double var(--gold);outline-offset:-9px;box-shadow:0 18px 50px rgba(0,0,0,.55);opacity:0;pointer-events:none;transform:translateY(12px) rotate(-.6deg);transition:.35s}
+#pop.on{opacity:1;pointer-events:auto;transform:rotate(-.6deg)}
+#pop .x{position:absolute;top:8px;right:12px;border:0;background:none;font-size:22px;color:var(--ink)}
+.k{font:11px var(--sc);letter-spacing:.25em;color:#7a5a2c}
+.yr{font-size:46px;line-height:1.05;font-weight:600;margin:2px 0}
+.pn{font:13px var(--sc);letter-spacing:.14em;text-transform:uppercase;color:#7a5a2c}
+#pop p{margin:8px 0 10px;font-size:17px;line-height:1.3}
+.near{font-style:italic;font-size:15px;margin:-4px 0 8px;color:#6b4a2f}
+.regs{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.regs button,.chips button{border:1px solid var(--ink);background:transparent;padding:6px 8px;font:12px var(--sc);letter-spacing:.06em;color:var(--ink);text-align:left}
+.regs button:hover{background:var(--ink);color:var(--par)}
+/* explore */
+#ex{position:fixed;inset:0;z-index:60;background:var(--bg2);overflow-y:auto;overflow-x:hidden;clip-path:circle(0 at 50% 50%);transition:clip-path 1s cubic-bezier(.7,0,.2,1);visibility:hidden}
+#ex.open{clip-path:circle(150% at var(--cx) var(--cy));visibility:visible}
+.back{position:fixed;top:calc(22px + env(safe-area-inset-top,0px));left:30px;z-index:70;border:1px solid var(--gold);background:rgba(43,28,19,.85);padding:8px 16px;font:13px var(--sc);letter-spacing:.14em;color:var(--goldl)}
+.back:hover{background:var(--gold);color:var(--bg)}
+.exh{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;padding:110px 6vw 30px;align-items:end}
+.exh h2{margin:0;font-weight:500;font-style:italic;font-size:clamp(44px,8vw,120px);line-height:.95;color:var(--par)}
+.exh .k{color:var(--goldl)}
+.exh p{font-size:21px;line-height:1.35;color:var(--par2);margin:10px 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{color:var(--goldl);border-color:var(--gold)}
+.chips button.on,.chips button:hover{background:var(--gold);color:var(--bg)}
+.col{position:relative;height:clamp(900px,82vw,1450px);margin:0 4vw}
+.big{position:absolute;left:0;right:0;top:30%;text-align:center;font-size:clamp(120px,30vw,420px);font-weight:600;color:rgba(184,145,62,.09);line-height:1;pointer-events:none;white-space:nowrap}
+.it{position:absolute;will-change:transform}
+.in{transition:transform 1.2s cubic-bezier(.2,.7,.2,1),opacity 1s;opacity:0;transform:translateX(var(--dx)) rotate(calc(var(--r) * 4))}
+.in.v{opacity:1;transform:rotate(var(--r))}
+.fr{background:var(--par2);border:9px double var(--gold);padding:10px;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.fr.film{background:#1d130c;border:0;padding:14px 18px;border-top:8px dashed #6b5336;border-bottom:8px dashed #6b5336}
+.pc{filter:drop-shadow(3px 8px 8px rgba(0,0,0,.5))}
+.pc .slot{clip-path:polygon(3% 2%,35% 0,70% 3%,99% 0,100% 45%,96% 75%,100% 99%,55% 100%,25% 96%,0 100%,3% 55%,0 25%)}
+.cap{margin-top:8px;font:italic 17px var(--serif);color:var(--par2)}
+.cap b{font:12px var(--sc);letter-spacing:.14em;color:var(--goldl);font-weight:400;margin-right:6px}
+.foot{padding:30px 6vw 90px;text-align:center;font-size:19px;color:var(--par2)}
+.slot img{width:100%;height:100%;object-fit:cover;display:block}
+.meta{font-size:17px;line-height:1.35;color:var(--par2);margin:0 0 10px}.meta b{font:12px var(--sc);letter-spacing:.12em;color:var(--goldl);font-weight:400}
+.foot a{color:var(--goldl)}.regs button:last-child:nth-child(odd){grid-column:1/-1}.near a{color:var(--ink)}
+@media(max-width:760px){.exh{grid-template-columns:1fr}header{padding:20px 20px 0}.hint{left:20px}.zoom{right:14px;top:auto;bottom:70px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<header><div class="kick">AN ARCHIVE · c. 100,000 BCE — 2026</div><h1>A History of Fashion</h1><div class="rule"></div></header>
+<div class="zoom"><button id="zo" aria-label="Zoom out">−</button><span id="zr">×1.0</span><button id="zi" aria-label="Zoom in">+</button></div>
+<div class="hint" id="hint">Scroll or use ← → to travel through time · click anywhere on the timeline</div>
+<div id="sc"><div id="track"></div></div>
+<div id="pop" role="dialog" aria-live="polite"></div>
+<div id="ex"></div>
+
+<script>
+const PAD=360, SC=document.getElementById("sc"), TR=document.getElementById("track"), POP=document.getElementById("pop"), EX=document.getElementById("ex");
+// [start, end, name, base px width, blurb]
+const P=[
+[-100000,-10000,"Prehistory",760,`Hides, furs and bone needles: clothing as survival first, ornament soon after.`],
+[-10000,-3000,"Neolithic",520,`Spun and woven fibres arrive, and cloth begins to replace hide.`],
+[-3000,-500,"Early Civilisations",720,`Linen, wool and silk. Dyed, draped cloth begins to signal rank.`],
+[-500,500,"Classical",900,`Chiton, toga and Han robes, with the first long-distance cloth trade.`],
+[500,1400,"Medieval",1000,`Byzantine silk, Islamic tiraz, Tang court dress and Gothic tailoring.`],
+[1400,1600,"Renaissance",820,`Velvet, slashing and ruffs: courts compete through cloth.`],
+[1600,1750,"Baroque",820,`Lace and brocade across the Mughal, Safavid and Versailles courts.`],
+[1750,1900,"Revolution & Industry",1000,`Cotton mills, the sewing machine, crinolines and bustles.`],
+[1900,1960,"Modern",900,`Couture houses, shifting hemlines and the rise of ready-to-wear.`],
+[1960,2026,"Contemporary",900,`Youth culture, streetwear, fast fashion and digital cloth.`]];
+let o=0;P.forEach(p=>{p.o=o;o+=p[3]});const TOT=o;
+let MS=[],MSD=[],AST={},SRC={};
+// [year, art idx, width, top %, rotation, parallax]
+const CUTS=[[-60000,2,120,28,-4,.08],[-30000,4,100,34,3,-.06],[-5000,3,128,27,2,.1],[-1500,1,110,31,-3,-.08],[-300,1,120,28,3,.07],[200,2,112,33,-2,-.06],[800,3,128,28,4,.09],[1300,0,116,31,-3,-.07],[1530,0,132,27,2,.08],[1640,2,118,33,-4,-.06],[1720,0,126,28,3,.07],[1860,2,130,31,-3,-.08],[1925,0,116,27,2,.06],[1975,2,124,33,-2,-.07],[2015,3,116,28,3,.08]];
+const ART=[
+`<svg viewBox="0 0 100 125"><ellipse cx="50" cy="46" rx="18" ry="22"/><path d="M14 125c0-32 16-48 36-48s36 16 36 48z"/></svg>`,
+`<svg viewBox="0 0 100 125"><path d="M38 18c0-10 24-10 24 0v16c0 8-5 13-12 13s-12-5-12-13z"/><path d="M24 64c10-9 42-9 52 0l3 18H21z"/><rect x="30" y="82" width="40" height="38"/></svg>`,
+`<svg viewBox="0 0 100 125"><path d="M41 8h18l-2 32 28 80H15l28-80z"/><path d="M41 8 26 34M59 8l15 26" stroke="#4a3220" stroke-width="5" fill="none"/></svg>`,
+`<svg viewBox="0 0 100 125"><defs><pattern id="tp" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M8 0 16 8 8 16 0 8z"/></pattern></defs><rect width="100" height="125" fill="url(#tp)"/></svg>`,
+`<svg viewBox="0 0 100 125"><circle cx="50" cy="48" r="32" fill="none" stroke="#4a3220" stroke-width="5"/><circle cx="50" cy="48" r="20"/><path d="M50 80l10 22H40z"/></svg>`,
+`<svg viewBox="0 0 100 125"><rect x="12" y="20" width="76" height="85" fill="none" stroke="#4a3220" stroke-width="4"/><path d="M40 105V70l10-14 10 14v35z"/><circle cx="50" cy="44" r="10"/></svg>`];
+const R=[{n:"Europe",k:["Western Europe","Eastern Europe"]},{n:"West Asia & North Africa",k:["West Asia","North Africa","Central Asia"]},{n:"South Asia",k:["South Asia"]},{n:"East & Southeast Asia",k:["East Asia","Southeast Asia"]},{n:"Sub-Saharan Africa",k:["Sub-Saharan Africa"]},{n:"The Americas",k:["North America","Central America","South America"]},{n:"Oceania",k:["Oceania"]}];
+// per-era collage: c = [art, caption] x6 ; p = [x%, y%, w%, aspect, class, parallax, rotation, slide-in px] x6
+const LAY={
+default:{c:[[0,"Portrait or painting"],[1,"Sculpture"],[2,"Garment"],[3,"Textile detail"],[4,"Jewellery & accessories"],[5,"Illustration or photograph"]],p:[[4,2,36,"4/5","fr",.05,-1.5,-140],[44,6,20,"3/4","pc",-.07,3,160],[68,14,26,"4/5","fr",.09,2,200],[10,44,30,"5/4","fr",-.05,-2.5,-180],[46,50,16,"1/1","pc",.1,-4,120],[62,60,32,"4/3","fr",.06,1.5,160]]},
+egypt:{c:[[5,"Wall painting or relief"],[2,"Linen garment"],[1,"Statuary"],[4,"Collar & jewellery"],[3,"Linen detail"],[0,"Portrait head"]],p:[[3,2,56,"16/7","fr",.05,-1,-220],[66,8,24,"3/4","pc",-.08,3,200],[8,34,22,"3/4","pc",.09,-3,-200],[36,38,18,"1/1","pc",-.06,2,160],[58,46,34,"5/3","fr",.06,1.5,220],[28,62,24,"4/5","fr",-.05,-2,-160]]},
+mughal:{c:[[0,"Court miniature painting"],[2,"Jama & patka"],[3,"Jamdani & embroidery detail"],[4,"Court jewellery"],[0,"Portrait of a noble"],[5,"Album page"]],p:[[6,2,34,"4/5","fr",.05,-1.5,-160],[46,4,24,"1/1","pc",-.08,3,180],[66,10,28,"4/5","fr",.08,2,220],[18,46,22,"1/1","pc",.1,-3,-150],[42,42,30,"4/5","fr",-.05,1.5,150],[74,52,20,"1/1","pc",.07,-4,200]]},
+rococo:{c:[[0,"Fashion portrait"],[2,"Surviving gown"],[5,"Fashion plate"],[3,"Silk & embroidery"],[4,"Stays & panniers"],[4,"Fans & accessories"]],p:[[4,4,30,"3/4","fr",.05,-1.5,-150],[40,2,24,"3/4","pc",-.08,2,170],[66,8,28,"3/4","fr",.08,1.5,200],[12,48,22,"1/1","pc",.1,-3,-170],[40,44,24,"3/4","pc",-.06,3,150],[66,54,26,"4/3","fr",.06,-1.5,190]]},
+edo:{c:[[5,"Ukiyo-e print"],[2,"Kosode"],[3,"Obi detail"],[3,"Pattern book page"],[4,"Combs & kanzashi"],[0,"Painted screen"]],p:[[4,2,18,"2/5","fr",.05,-1,-140],[26,6,30,"4/3","fr",-.07,2,170],[62,2,18,"2/5","fr",.09,1.5,190],[8,44,26,"3/4","pc",.06,-3,-160],[40,46,16,"1/1","pc",-.09,3,150],[60,48,34,"5/4","fr",.05,-1.5,200]]},
+twenties:{c:[[5,"Magazine cover"],[5,"Fashion illustration"],[0,"Photograph"],[2,"Beaded dress detail"],[4,"Cloche & accessories"],[5,"Film still"]],p:[[4,2,28,"3/4","fr",.05,-2,-150],[36,8,26,"4/5","pc",-.08,3,170],[66,4,28,"3/4","fr",.08,2,200],[10,46,26,"1/1","pc",.1,-4,-180],[40,44,22,"1/1","pc",-.06,2.5,150],[62,52,32,"4/3","fr film",.06,-1,190]]},
+nineties:{c:[[0,"Runway photograph"],[2,"Archive collection piece"],[0,"Street style"],[5,"Magazine editorial"],[3,"Garment detail"],[5,"Show footage still"]],p:[[4,2,34,"4/3","fr film",.05,-1,-170],[44,6,24,"3/4","fr",-.08,2,170],[72,2,22,"3/4","pc",.09,2.5,200],[8,42,22,"3/4","pc",.1,-3,-160],[34,48,24,"4/5","fr",-.06,1.5,150],[62,54,32,"4/3","fr film",.06,-1,200]]}};
+const mid=m=>Math.round((m.s+m.e)/2), inG=(m,g)=>m.regions.some(r=>R[g].k.includes(r)), gOf=m=>R.findIndex((x,i)=>inG(m,i));
+const dist=(m,y)=>y<m.s?m.s-y:y>m.e?y-m.e:0, rng=m=>m.s===m.e?fmt(m.s):`${fmt(m.s)} to ${fmt(m.e)}`;
+const mAt=(y,g)=>MSD.filter(m=>inG(m,g)).sort((a,b)=>dist(a,y)-dist(b,y)||(a.e-a.s)-(b.e-b.s))[0];
+const esc=s=>String(s||"").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+let Z=1, curYear=null;
+const u=y=>{for(const p of P)if(y<=p[1])return p.o+(Math.max(y,p[0])-p[0])/(p[1]-p[0])*p[3];return TOT};
+const yOf=v=>{v=Math.min(Math.max(v,0),TOT);for(const p of P)if(v<=p.o+p[3])return p[0]+(v-p.o)/p[3]*(p[1]-p[0]);return 2026};
+const X=y=>PAD+u(y)*Z;
+const fmt=y=>y<0?`${Math.abs(y).toLocaleString("en")} BCE`:y===0?"1 CE":y<1000?`${y} CE`:`${y}`;
+const snap=y=>{const s=y<-10000?1000:y<-3000?100:y<1000?10:y<1600?5:1;const r=Math.round(y/s)*s;return r===0?1:Math.min(r,2026)};
+const period=y=>P.find(p=>y<=p[1])||P[P.length-1];
+let cutEls=[];
+function build(){
+  const W=PAD*2+TOT*Z, k=Math.min(1,innerHeight/800), h=[`<div class="mat"></div><div class="axis"></div><div id="guide"><span></span></div><div id="sel"></div>`];
+  const nice=[1,2,5,10,25,50,100,250,500,1000,2500,5000,10000];
+  P.forEach(p=>{
+    const ppy=p[3]*Z/(p[1]-p[0]), st=nice.find(s=>s*ppy>=78)||10000;
+    h.push(`<div class="per" style="left:${X(p[0])}px;width:${p[3]*Z}px">${p[2]}</div>`);
+    for(let y=Math.ceil(p[0]/st)*st;y<p[1];y+=st)if(y!==0||true)h.push(`<div class="tick" style="left:${X(y)}px"><span>${fmt(y)}</span></div>`);
+  });
+  h.push(`<div class="tick" style="left:${X(2026)}px"><span>2026</span></div>`);
+  MS.forEach((m,i)=>h.push(`<div class="ms" data-y="${m[0]}" style="left:${X(m[0])}px;--lv:${[24,50,76][i%3]}px"><i></i><em></em><b>${m[1]}</b></div>`));
+  CUTS.forEach((c,i)=>h.push(`<div class="cut" data-y="${c[0]}" data-i="${i}" style="left:${X(c[0])-c[2]*k/2}px;top:${c[3]}%;width:${c[2]*k}px"><div class="cut-in" style="--d:${(i*.07).toFixed(2)}s"><span class="slot" style="aspect-ratio:4/5">${ART[c[1]]}</span></div></div>`));
+  TR.style.width=W+"px";TR.innerHTML=h.join("");
+  cutEls=[...TR.querySelectorAll(".cut")].map(el=>{const c=CUTS[+el.dataset.i];return{el,x:X(c[0]),s:c[5],r:c[4]}});
+  document.getElementById("zr").textContent="×"+Z.toFixed(1);
+  if(curYear!==null)mark(curYear);
+  par();
+}
+let tick=false;
+function par(){const c=SC.scrollLeft+innerWidth/2;cutEls.forEach(e=>{e.el.style.transform=`translateX(${((c-e.x)*e.s).toFixed(1)}px) rotate(${e.r}deg)`});tick=false}
+SC.addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(par)}document.getElementById("hint").style.opacity=0},{passive:true});
+SC.addEventListener("wheel",e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){SC.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
+function zoom(f){const cy=yOf((SC.scrollLeft+innerWidth/2-PAD)/Z);Z=Math.min(3.2,Math.max(.5,Z*f));build();SC.scrollLeft=X(cy)-innerWidth/2;par()}
+zi.onclick=()=>zoom(1.4);zo.onclick=()=>zoom(1/1.4);
+function mark(y){const s=document.getElementById("sel");s.style.display="block";s.style.left=X(y)+"px"}
+SC.addEventListener("mousemove",e=>{const g=document.getElementById("guide");if(!g)return;const x=e.clientX+SC.scrollLeft;g.style.display="block";g.style.left=x+"px";g.firstChild.textContent=fmt(snap(yOf((x-PAD)/Z)))});
+SC.addEventListener("mouseleave",()=>{const g=document.getElementById("guide");if(g)g.style.display="none"});
+SC.addEventListener("click",e=>{const d=e.target.closest("[data-y]");const y=d?+d.dataset.y:snap(yOf((e.clientX+SC.scrollLeft-PAD)/Z));openPop(y,e.clientX)});
+function openPop(y,cx){
+  curYear=y;mark(y);const p=period(y),on=MSD.filter(m=>dist(m,y)===0);
+  POP.innerHTML=`<button class="x" aria-label="Close">×</button><div class="k">SELECTED YEAR</div><div class="yr">${fmt(y)}</div><div class="pn">${p[2]}</div>
+  <p>${p[4]}</p>${on.length?`<div class="k">ON RECORD</div><div class="near">${on.slice(0,3).map(m=>`<a href="#" data-m="${m.id}">${m.short}</a>`).join(" · ")}</div>`:""}<div class="k" style="margin-bottom:6px">EXPLORE BY REGION${on.length?" (● has an entry)":""}</div>
+  <div class="regs">${R.map((r,i)=>`<button data-r="${i}">${on.some(m=>inG(m,i))?"● ":""}${r.n}</button>`).join("")}</div>`;
+  POP.style.left=Math.max(14,Math.min(cx-60,innerWidth-346))+"px";
+  POP.style.top=Math.max(130,innerHeight*.6-POP.offsetHeight-34)+"px";
+  POP.classList.add("on");
+  POP.querySelector(".x").onclick=closePop;
+  POP.querySelectorAll("[data-r]").forEach(b=>b.onclick=ev=>openEx(y,+b.dataset.r,ev.clientX,ev.clientY));
+  POP.querySelectorAll("[data-m]").forEach(a=>a.onclick=ev=>{ev.preventDefault();openEx(y,gOf(MSD.find(m=>m.id===a.dataset.m)),ev.clientX,ev.clientY)});
+}
+function closePop(){POP.classList.remove("on")}
+let io,exState={};
+function openEx(y,g,cx,cy){closePop();exState={y,g};EX.style.setProperty("--cx",cx+"px");EX.style.setProperty("--cy",cy+"px");render();EX.scrollTop=0;EX.classList.add("open")}
+function render(){
+  const {y,g}=exState,r=R[g],m=mAt(y,g),p=period(y),lay=LAY[m&&LAY[m.layout]?m.layout:"default"];
+  const rel=m?m.related.map(id=>MSD.find(o=>o.id===id)).filter(Boolean):[];
+  const els=MSD.filter(o=>!inG(o,g)&&dist(o,y)<=40).slice(0,4);
+  const chip=o=>`<button data-m="${o.id}">${o.short} · ${fmt(mid(o))}</button>`;
+  const head=m?`<p><b>${m.title}</b> (${rng(m)}). ${m.blurb}${dist(m,y)?" Nearest curated entry to this year.":""}</p>
+    <div class="meta">${m.context}</div>
+    <div class="meta"><b>DATE CONFIDENCE</b> ${m.conf}${m.garments.length?` · <b>GARMENTS</b> ${m.garments.join(", ")}`:""}${m.materials.length?` · <b>MATERIALS</b> ${m.materials.join(", ")}`:""}${m.people.length?` · <b>PEOPLE</b> ${m.people.join(", ")}`:""}</div>`
+    :`<p>No curated entry for this region yet. The general archive frame is shown. ${p[4]}</p>`;
+  EX.innerHTML=`<button class="back">← Return to the timeline</button>
+  <div class="exh"><div><div class="k">${fmt(y)} · ${p[2].toUpperCase()}</div><h2>${r.n}</h2></div>
+  <div>${head}${rel.length?`<div class="k">RELATED</div><div class="chips">${rel.map(chip).join("")}</div>`:""}${els.length?`<div class="k" style="margin-top:10px">ELSEWHERE AT THIS TIME</div><div class="chips">${els.map(chip).join("")}</div>`:""}
+  <div class="k" style="margin-top:10px">SWITCH REGION</div><div class="chips">${R.map((q,i)=>`<button data-r="${i}" class="${i===g?"on":""}">${q.n}</button>`).join("")}</div></div></div>
+  <div class="col"><div class="big" data-s=".12">${fmt(y)}</div>${lay.p.map((l,i)=>{
+   const A=m&&m.assets&&AST[m.assets[i]],src=A&&(A.local||A.url);
+   return `<div class="it" data-s="${l[5]}" style="left:${l[0]}%;top:${l[1]}%;width:${l[2]}%"><div class="in ${l[4]}" style="--r:${l[6]}deg;--dx:${l[7]}px">
+   <span class="slot" style="aspect-ratio:${l[3]}">${src?`<img src="${esc(src)}" alt="${esc(A.title)}" loading="lazy">`:`${ART[lay.c[i][0]]}<small>image slot</small>`}</span>
+   <div class="cap"><b>FIG. ${i+1}</b>${A?`${esc(A.title)}, ${esc(A.maker||"maker unknown")} · ${esc(A.museum)} · ${esc(A.licence)}`:lay.c[i][1]}</div></div></div>`}).join("")}</div>
+  <div class="foot">${m?`Archives to verify against: ${m.sources.map(k=>SRC[k]?`<a href="${SRC[k][1]}" target="_blank" rel="noopener">${SRC[k][0]}</a>`:k).join(" · ")}. Page-level citations pending.`:"Prototype view."}</div>`;
+  EX.querySelector(".back").onclick=closeEx;
+  EX.querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>{exState.g=+b.dataset.r;render();EX.scrollTop=0});
+  EX.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{const o=MSD.find(q=>q.id===b.dataset.m);exState={y:Math.min(Math.max(y,o.s),o.e),g:gOf(o)};render();EX.scrollTop=0});
+  io&&io.disconnect();io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("v")}),{root:EX,threshold:.12});
+  EX.querySelectorAll(".in").forEach(n=>io.observe(n));exPar();
+}
+function exPar(){const col=EX.querySelector(".col");if(!col)return;const m=EX.scrollTop+innerHeight/2;
+  EX.querySelectorAll("[data-s]").forEach(el=>{const b=col.offsetTop+el.offsetTop+el.offsetHeight/2;el.style.transform=`translateY(${((m-b)*el.dataset.s).toFixed(1)}px)`})}
+EX.addEventListener("scroll",()=>requestAnimationFrame(exPar),{passive:true});
+function closeEx(){EX.classList.remove("open")}
+addEventListener("keydown",e=>{
+  if(e.key==="Escape"){EX.classList.contains("open")?closeEx():closePop()}
+  else if(!EX.classList.contains("open")){if(e.key==="ArrowRight")SC.scrollBy({left:320,behavior:"smooth"});if(e.key==="ArrowLeft")SC.scrollBy({left:-320,behavior:"smooth"})}});
+addEventListener("resize",()=>{build();exPar()});
+(async()=>{
+  try{const D=window.__DATA__||{milestones:await (await fetch("data/milestones.json")).json(),assets:await (await fetch("data/assets.json")).json()};
+    MSD=D.milestones.milestones;SRC=D.milestones.sourceRegistry;(D.assets.assets||[]).forEach(a=>AST[a.id]=a)}
+  catch(e){console.warn("Data load failed (serve over http, not file://)",e)}
+  MS=MSD.map(m=>[mid(m),m.short,m.id]).sort((a,b)=>a[0]-b[0]);build();SC.scrollLeft=X(1650)-innerWidth/2;
+})();
+</script>
+</body>
+</html>

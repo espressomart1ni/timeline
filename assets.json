@@ -1,0 +1,8 @@
+{
+"version":1,
+"status":"EMPTY. No images have been downloaded or verified yet. Run fetch_assets.py with network access to populate.",
+"rights_vocabulary":["cc0","public-domain","cc-by (attribution)","needs-review","restricted","unknown"],
+"asset_fields":["id","category","title","maker","date","region","museum","page","url","local","original_local","cutout_local","w","h","licence","rights_status","milestones","treatment","verified_at"],
+"categories":["paintings","portraits","garments","sculptures","textiles","embroidery","illustrations","jewellery","photographs","magazines","runway","film"],
+"assets":[]
+}
